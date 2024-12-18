@@ -49,5 +49,3 @@ Hệ thống quản lý shop giày Sneaker dự kiến sẽ giúp:
 - **Hỗ trợ phát triển kinh doanh**: Hệ thống giúp mở rộng quy mô, dễ dàng quản lý nhiều cửa hàng và chi nhánh nếu cần.
 
 ---
-
-Hy vọng nội dung trên đáp ứng đúng yêu cầu của bạn. Nếu cần chỉnh sửa hoặc bổ sung gì, bạn cứ cho mình biết nhé!
