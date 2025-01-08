@@ -11,3 +11,11 @@
 - Select technology for the application
 - Design the database for the application
 - Coding front-end
+
+
+# 8 Jan 2025
+
+- Update README.md
+- Add 3 usecases
+- Update plan
+- Refactor source code
