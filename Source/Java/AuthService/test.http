@@ -1,0 +1,68 @@
+GET http://localhost:8080/hello
+#Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huZG9lIiwiaWF0IjoxNzMxMTc1NTg4LCJleHAiOjE3MzEyNjE5ODh9.ab3cgW7ckrribt_cnQ38nC84L58YQZo7d4j9NblrVCw
+# for authentication Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huZG9lIiwiaWF0IjoxNzMxNDMxMDU0LCJleHAiOjE3MzE1MTc0NTR9.3jQg2ktVVemFn3UVmcGLYMt_pC64IBA24AQBqzeO5no
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMDMzMjQ1MzQwNDM2NDMyMDQ4OTMiLCJpYXQiOjE3MzE0MzEwODYsImV4cCI6MTczMTUxNzQ4Nn0.x7wLLqciVN_zjmNnBV6_TJaGr-92hyX5SAvRDpBX7kM
+
+
+### GỬI MAGIC LINK ĐẾT LẬT MẬT KHẨU
+POST localhost:8080/auth/forgot-password?email=nhson26122004@gmail.com
+
+
+### TRANG THAY ĐỔI MẬT KHẨU
+GET http://localhost:8080/auth/reset-password?token=ad1ab580-6a35-4fea-a360-bdba6a3e9939&userId=123e4567-e89b-12d3-a456-426614174000
+
+### THAY ĐỔI MẬT KHẨU
+POST http://localhost:8080/auth/update-password
+Content-Type: application/json
+
+{
+    "token": "ad1ab580-6a35-4fea-a360-bdba6a3e9939",
+    "userId": "123e4567-e89b-12d3-a456-426614174000",
+    "newPassword": "updated_hashed_pw_123"
+}
+
+### LOGIN
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "username": "snowflake-test",
+  "password": "password"
+}
+
+
+### UPDATE
+PUT http://localhost:8080/auth/update
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMDMzMjQ1MzQwNDM2NDMyMDQ4OTMiLCJpYXQiOjE3MzIwMzU2MzAsIm5iZiI6MTczMjAzNTYzMCwiZXhwIjoxNzMyMTIyMDMwLCJpc3MiOiJBdXRoU2VydmljZSIsInNjb3BlIjpbImdvb2dsZWFwaXMuYXV0aC51c2VyaW5mby5lbWFpbCIsIm9wZW5pZCIsImdvb2dsZWFwaXMuYXV0aC51c2VyaW5mby5wcm9maWxlIiwiVVNFUiJdLCJlbWFpbCI6Im5oc29uMjYxMjIwMDRAZ21haWwuY29tIn0.c5_3-WuIdMO_7x7PemIqFEbo9g_BNGmgqEqr8ZaX-vo
+
+{
+  "userId": "103324534043643204893",
+  "tokenVersion": ["af3e23bd-86b1-4cfa-b5b8-515ffeb55633.TEACHER"]
+}
+
+
+### UPDATE EMAIL
+PUT http://localhost:8080/auth/update
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkOTRjYzg5Ny01YmYwLTQ0MGQtOTdlOS1mZjgyMzY3NmViNDQiLCJpYXQiOjE3MzIxODMwMDEsIm5iZiI6MTczMjE4MzAwMSwiZXhwIjoxNzMyMjY5NDAxLCJpc3MiOiJBdXRoU2VydmljZSIsInBlcm1pc3Npb25zIjpbXSwic2NvcGUiOlsiVVNFUiJdLCJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20ifQ.Zy6kUY3H2crkjfVZEV7-BhhQPk5cB06yRxhOzqKlzWw
+
+{
+  "userId": "d94cc897-5bf0-440d-97e9-ff823676eb44",
+  "email": "nhson2612@example.com"
+}
+
+### ĐĂNG KÍ
+POST localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "username": "dinhdaubo",
+  "password": "password",
+  "email": "dinhdaubo@example.com"
+}
+
+
+### LẤY PERMISSIONS
+GET http://localhost:8080/auth/permission
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NTA2Njk5NjE4Nzc5MTM2MDAiLCJpYXQiOjE3MzI5ODI3ODUsIm5iZiI6MTczMjk4Mjc4NSwiZXhwIjoxNzMzMDY5MTg1LCJzY29wZSI6WyJVU0VSIl0sImVtYWlsIjoidGVzdDJAZXhhbXBsZS5jb20iLCJ1c2VybmFtZSI6InNub3dmbGFrZS10ZXN0In0.PSt4eXF0TffEKT4QJXfOkFFq7s47d_Iquwl6NUNaXM0

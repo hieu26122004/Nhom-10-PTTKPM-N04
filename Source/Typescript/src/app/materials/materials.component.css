@@ -1,0 +1,75 @@
+.materials-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: var(--bg-dark);
+    border-radius: 8px;
+}
+
+.material-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.material-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.material-content {
+    flex-grow: 1;
+}
+
+.material-title {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.material-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.material-link:hover {
+    text-decoration: underline;
+}
+
+.material-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.delete-button,
+.edit-button {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+    background-color: var(--btn-delete-hover);
+}
+
+.edit-button:hover {
+    background-color: var(--btn-edit-hover);
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-light);
+}

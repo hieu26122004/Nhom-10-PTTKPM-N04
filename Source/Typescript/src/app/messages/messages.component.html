@@ -1,0 +1,31 @@
+<div class="row messages-container dark-background light-text py-3" [style.height.px]="containerHeight">
+  <!-- Cột người dùng hoặc nhóm -->
+
+  <div class="col-9 orange-border-thick scrollbar" style="overflow-y: auto; height: 90%; border-radius: 10px;"  #messageContainer>
+      <div *ngIf="messages.has(currentTargetUserName)">
+          <div *ngFor="let message of messages.get(currentTargetUserName)">
+              <div title="{{ message.timestamp }}" 
+                   [ngClass]="{'my-message': isMyMessage(message), 'others-message': !isMyMessage(message)}">
+                  <span class="message">{{ message.content }}</span>
+              </div>
+          </div>
+      </div>
+
+      <div class="input-box d-flex" style="position: fixed; bottom: 10px; padding: 0.5rem; gap: 0.2rem;" [style.width.px]="inputWidth">
+          <input type="text" class="rounded" [(ngModel)]="newMessage" (focus)="adjustMessageInputWidth()" style="flex: 8;">
+          <button class="btn base-button" (click)="sentMessage()">Sent</button>
+      </div>
+      
+      <div *ngIf="!messages.has(currentTargetUserName)">
+          <p>Chưa có tin nhắn</p>
+      </div>
+  </div>
+  <div class="col-3">
+    <div *ngFor="let user of participantsAndGroups" 
+         class="user-card card-hover orange-border-thick base-card my-3"
+         [ngClass]="{'active': user === currentTargetUserName}" 
+         (click)="switchTargetUser(user)">
+        <span>{{ user }}</span>
+    </div>
+</div>
+</div>

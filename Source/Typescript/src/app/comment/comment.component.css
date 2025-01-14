@@ -1,0 +1,27 @@
+.comment-content{
+    margin: 0;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+    line-height: 1.5;
+    text-align: justify;
+    hyphens: none;
+}
+
+.fa-comment-o:hover{
+    cursor: pointer;
+    color: var(--orange-color);
+    transform: translate(2px,0px);
+    transition: 0.3s ease-in-out;
+}
+
+.comment-info{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.comment-info > * {
+    border-right: 1px solid var(--bg-light);
+    padding: 0 0.5rem;
+}

@@ -1,0 +1,12 @@
+<div *ngIf="attempt && attempt.result" class="dark-background base-card attempt-card card-hover border rounded shadow-sm attempt-container">
+  <div class="attempt-grid">
+      <h5 class="orange header-xs">{{ attempt.examName }}</h5>
+      <p class="light-text attempt-result"><strong class="orange">Score :</strong> {{ attempt.result.score }}</p>
+      <p class="green"><strong class="orange">Correct Answer:</strong> {{ attempt.result.correctCount }} questions</p>
+      <p class="light-text"><strong>Incorrect Answer:</strong> {{ attempt.result.incorrectCount }} questions</p>
+      <p class="yellow"><strong>Unanswered:</strong> {{ attempt.result.unansweredCount }} questions</p>
+      <p class="attempt-duration light-text"><strong>Duration:</strong> {{ attempt.totalTime }} minutes</p>
+  </div>
+
+  <button type="button" class="btn base-button" (click)="attemptDetails(attempt)">Details</button>
+</div>

@@ -1,0 +1,29 @@
+.user-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.user-info p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.stats {
+    display: flex;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.content {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px dashed #ff4500;
+    border-radius: 8px;
+    text-align: center;
+    font-style: italic;
+}
+
+.next-button {
+    margin-top: 20px;
+    text-align: right;
+}

@@ -1,0 +1,26 @@
+<div class="materials-container">
+    <!-- Check if materials exist -->
+    <div *ngIf="materials.length > 0; else emptyState">
+    <div class="material-card" *ngFor="let material of materials">
+        <div class="material-content">
+        <h3 class="material-title">{{ material.title }}</h3>
+        <a class="material-link" [href]="material.url" target="_blank" rel="noopener noreferrer">
+            Open Material
+        </a>
+        </div>
+
+        <!-- Teacher-specific actions -->
+        <div *ngIf="isTeacher" class="material-actions">
+        <button class="delete-button" (click)="onDelete(material.materialId)">Delete</button>
+        <button class="edit-button" (click)="onEdit(material.materialId)">Edit</button>
+        </div>
+    </div>
+    </div>
+
+    <!-- Empty state -->
+    <ng-template #emptyState>
+    <div class="empty-state">
+        <p>No materials available for this class.</p>
+    </div>
+    </ng-template>
+</div>

@@ -1,0 +1,56 @@
+.scrollable-container {
+  overflow-y: auto;
+  padding-right: 0px;
+  height: 82vh;
+}
+
+.scrollable-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background: #6c757d;
+  border-radius: 4px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #343a40;
+}
+
+
+.scrollable-container a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.scrollable-container p{
+  margin-right: 5px;
+  margin-bottom: 0px;
+  padding: 10px 10px;
+}
+
+.scrollable-container p:hover{
+  background-color: #ff4500;
+  box-shadow: 0 0 0 0.25rem rgba(255, 69, 0, 0.25);
+  color: #fff;
+  border-radius: 10px;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.sidebar-item:hover{
+  background-color: #ff4500;
+  box-shadow: 0 0 0 0.25rem rgba(255, 69, 0, 0.25);
+  color: #fff;
+  border-radius: 10px;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.sidebar-item{
+  padding: 5px 10px;
+}
+
+.class-id-text{
+  font-size: 10px !important; background-color: transparent !important; border: 0 !important; box-shadow: none !important;
+}

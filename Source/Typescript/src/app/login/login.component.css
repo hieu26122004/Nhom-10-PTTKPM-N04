@@ -1,0 +1,25 @@
+body {
+  background: linear-gradient(135deg, #FF4400, #ae3d13);
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.btn-outline-danger {
+  color: #db4437;
+  border-color: #db4437;
+}
+
+.btn-outline-danger:hover {
+  background-color: #db4437;
+  color: #fff;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.is-invalid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}

@@ -1,0 +1,44 @@
+### GRADE
+POST http://localhost:8082/exam/submission
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0ZTA4N2U3Ny0wNDVjLTQ1YWItYjViNC1iZjkyYmMxY2MyM2IiLCJpYXQiOjE3MzI4ODE1NjAsIm5iZiI6MTczMjg4MTU2MCwiZXhwIjoxNzMyOTY3OTYwLCJpc3MiOiJBdXRoU2VydmljZSIsInBlcm1pc3Npb25zIjpbXSwic2NvcGUiOlsiVVNFUiJdLCJlbWFpbCI6InRlc3QxQGV4YW1wbGUuY29tIiwidXNlcm5hbWUiOiJuaGhpZXUyNjEyIn0.ykuQgMUk5Q-dc0tUQdPc6loX8MbNGopV2cnAcfuOXwo
+
+{
+  "attemptId": "",
+  "userId": "",
+  "examId": "f6c13ae9-b503-46df-86f2-d943c842bf02",
+  "examName": "Bài kiểm tra được tạo qua Angular App",
+  "totalTime": 10,
+  "userAnswer": [
+    {
+      "userAnswer": "<p>Đáp án 4</p>",
+      "examId": "f6c13ae9-b503-46df-86f2-d943c842bf02",
+      "questionId": "90fc092d-fcca-4ba3-a6ae-c2d7549a4d09",
+      "isCorrect": false
+    },
+    {
+      "userAnswer": "<p>Đáp án 3</p>",
+      "examId": "f6c13ae9-b503-46df-86f2-d943c842bf02",
+      "questionId": "253ea548-29aa-4fc8-b4d4-f70c68d06fb1",
+      "isCorrect": false
+    }
+  ],
+  "questions": [],
+  "result": null,
+  "isNew": true
+}
+
+
+### GET ATTEMPT
+GET http://localhost:8082/attempts/06768a68-ddd6-47a4-8d59-c97b057f79c7
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0ZTA4N2U3Ny0wNDVjLTQ1YWItYjViNC1iZjkyYmMxY2MyM2IiLCJpYXQiOjE3MzI4ODE1NjAsIm5iZiI6MTczMjg4MTU2MCwiZXhwIjoxNzMyOTY3OTYwLCJpc3MiOiJBdXRoU2VydmljZSIsInBlcm1pc3Npb25zIjpbXSwic2NvcGUiOlsiVVNFUiJdLCJlbWFpbCI6InRlc3QxQGV4YW1wbGUuY29tIiwidXNlcm5hbWUiOiJuaGhpZXUyNjEyIn0.ykuQgMUk5Q-dc0tUQdPc6loX8MbNGopV2cnAcfuOXwo
+
+
+### GET ATTEMPT DETAILS
+GET http://localhost:8082/attempts/details/06768a68-ddd6-47a4-8d59-c97b057f79c7/details
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0ZTA4N2U3Ny0wNDVjLTQ1YWItYjViNC1iZjkyYmMxY2MyM2IiLCJpYXQiOjE3MzI4ODE1NjAsIm5iZiI6MTczMjg4MTU2MCwiZXhwIjoxNzMyOTY3OTYwLCJpc3MiOiJBdXRoU2VydmljZSIsInBlcm1pc3Npb25zIjpbXSwic2NvcGUiOlsiVVNFUiJdLCJlbWFpbCI6InRlc3QxQGV4YW1wbGUuY29tIiwidXNlcm5hbWUiOiJuaGhpZXUyNjEyIn0.ykuQgMUk5Q-dc0tUQdPc6loX8MbNGopV2cnAcfuOXwo
+
+
+### GET ALL ATTEMPTS
+GET http://localhost:8082/attempts
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0ZTA4N2U3Ny0wNDVjLTQ1YWItYjViNC1iZjkyYmMxY2MyM2IiLCJpYXQiOjE3MzI4ODE1NjAsIm5iZiI6MTczMjg4MTU2MCwiZXhwIjoxNzMyOTY3OTYwLCJpc3MiOiJBdXRoU2VydmljZSIsInBlcm1pc3Npb25zIjpbXSwic2NvcGUiOlsiVVNFUiJdLCJlbWFpbCI6InRlc3QxQGV4YW1wbGUuY29tIiwidXNlcm5hbWUiOiJuaGhpZXUyNjEyIn0.ykuQgMUk5Q-dc0tUQdPc6loX8MbNGopV2cnAcfuOXwo

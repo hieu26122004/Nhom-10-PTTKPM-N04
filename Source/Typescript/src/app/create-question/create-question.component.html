@@ -1,0 +1,59 @@
+<div class="container light-text">    
+  <h1>Form Câu Hỏi</h1>
+
+  <!-- Hiển thị câu hỏi dưới dạng grid -->
+  <div class="row mb-3">
+    <div class="col" *ngFor="let question of questionRequests; let i = index">
+      <button type="button" class="btn light-button w-100"
+              (click)="selectQuestion(i)">
+        Câu hỏi {{ i + 1 }}
+      </button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="onSubmit()">
+    <!-- Quill Editor cho Câu Hỏi -->
+    <div class="form-group">
+      <label for="questionContent">Nội dung câu hỏi:</label>
+      <quill-editor [(ngModel)]="questionContent" name="questionContent"></quill-editor>
+    </div>
+
+    <!-- Các lựa chọn (Không dùng *ngFor, khai báo thủ công) -->
+    <div class="form-group d-flex align-items-center gap-3 my-4">
+      <label for="optionContent1" style="font-size: 0.8rem; text-align: center;">Lựa chọn 1:</label>
+      <quill-editor [(ngModel)]="optionContents[0]" name="optionContent1" class="w-75"></quill-editor>
+      <div>
+        <input type="checkbox" [(ngModel)]="optionIsCorrect[0]" name="optionIsCorrect1"> Đúng
+      </div>
+    </div>
+
+    <div class="form-group d-flex align-items-center gap-3 my-4">
+      <label for="optionContent2" style="font-size: 0.8rem; text-align: center;">Lựa chọn 2:</label>
+      <quill-editor [(ngModel)]="optionContents[1]" name="optionContent2" class="w-75"></quill-editor>
+      <div>
+        <input type="checkbox" [(ngModel)]="optionIsCorrect[1]" name="optionIsCorrect2"> Đúng
+      </div>
+    </div>
+
+    <div class="form-group d-flex align-items-center gap-3 my-4">
+      <label for="optionContent3" style="font-size: 0.8rem; text-align: center;">Lựa chọn 3:</label>
+      <quill-editor [(ngModel)]="optionContents[2]" name="optionContent3" class="w-75"></quill-editor>
+      <div>
+        <input type="checkbox" [(ngModel)]="optionIsCorrect[2]" name="optionIsCorrect3"> Đúng
+      </div>
+    </div>
+
+    <div class="form-group d-flex align-items-center gap-3 my-4">
+      <label for="optionContent4" style="font-size: 0.8rem; text-align: center;">Lựa chọn 4:</label>
+      <quill-editor [(ngModel)]="optionContents[3]" name="optionContent4" class="w-75"></quill-editor>
+      <div>
+        <input type="checkbox" [(ngModel)]="optionIsCorrect[3]" name="optionIsCorrect4"> Đúng
+      </div>
+    </div>
+    <div class="container d-flex justify-content-between">
+      <button type="button" class="btn base-button" (click)="previousQuestion()">Previous</button>
+      <button *ngIf="index === questionRequests.length - 1" type="submit" class="btn base-button">Submit</button>
+      <button type="button" class="btn base-button" (click)="nextQuestion()">Next</button>
+    </div> 
+  </form>
+</div>

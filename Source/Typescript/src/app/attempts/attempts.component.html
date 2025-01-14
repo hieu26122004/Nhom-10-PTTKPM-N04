@@ -1,0 +1,10 @@
+<div class="container mt-4">
+    <span class="light-text p-3 my-4 text-center rounded border" style="background-color: #2b962b38 !important;;">Notice : We will automatically delete attempts older than 30 days</span>
+    <p></p>
+    <h1 class="text-light component-header mt-4">
+        Attempt History
+    </h1>
+    <div *ngFor="let attempt of attempts" class="my-3">
+        <app-attempt [attempt]="attempt"></app-attempt>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="community-container container mt-4">
+    <div *ngFor="let community of communities" class="dark-background base-card card-hover community-card">
+        <a [routerLink]="['/community-expand', community.name.toLowerCase()]" style="text-decoration: none !important;">
+            <img [src]="community.image" alt="{{ community.name }}" class="community-image">
+            <h3 class="class-name">{{ community.name }}</h3>
+            <p class="quote">"{{ community.quote }}"</p>
+        </a>
+    </div>
+</div>

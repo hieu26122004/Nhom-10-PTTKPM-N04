@@ -1,0 +1,9 @@
+.user-card{
+    overflow: hidden;
+}
+
+.active {
+    background-color: var(--orange-color); /* Màu nền cho người dùng đang chọn */
+    color: var(--text-light); /* Màu chữ */
+    font-weight: bold; /* Đổi chữ thành đậm */
+}

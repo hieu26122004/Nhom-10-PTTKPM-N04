@@ -1,0 +1,34 @@
+.category-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  /* Điều chỉnh căn giữa và phân bố đều các mục */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .category-list li {
+    padding: 0.5rem 1rem;  /* Thêm padding rộng hơn để mục dễ nhấn */
+    margin: 0.5rem;  /* Khoảng cách giữa các mục */
+    cursor: pointer;
+    border-radius: 5px;  /* Góc bo tròn cho các mục */
+    transition: all 0.3s ease;  /* Hiệu ứng chuyển động mượt mà khi hover */
+  }
+  
+  .active-filter {
+    color: var(--orange-color);  /* Màu nổi bật khi mục được chọn */
+    font-size: 18px;  /* Kích thước chữ phù hợp */
+    font-weight: bolder;  /* Làm đậm chữ khi được chọn */
+    background-color: #ffe5b4;  /* Thêm nền nhẹ cho mục đã chọn để nổi bật */
+    border-radius: 5px;  /* Bo góc cho mục đã chọn */
+    padding: 0.5rem 1rem;  /* Padding lớn hơn cho mục được chọn */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  /* Hiệu ứng đổ bóng cho mục đang được chọn */
+  }
+  
+  /* Optional: Đảm bảo kích thước của các mục li luôn đồng đều */
+  .category-list li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

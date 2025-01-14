@@ -1,0 +1,103 @@
+<div class="container light-text">
+  <!-- User Settings Section -->
+  <div class="settings-section">
+    <h2>Settings</h2>
+    <form>
+      <fieldset>
+        <legend>User Profile</legend>
+
+        <label for="username">User Name</label>
+        <input id="username" type="text" [value]="profile?.userName" placeholder="Enter your username" required />
+
+        <label for="email">Email</label>
+        <input id="email" type="email" [value]="profile?.email" placeholder="Enter your email" required />
+
+        <label for="bio">Bio</label>
+        <textarea id="bio" rows="3" placeholder="Tell us something about you">{{ profile?.bio }}</textarea>
+
+        <label for="birthDate">Birth Date</label>
+        <input id="birthDate" type="date" [value]="profile?.birthDate | date:'yyyy-MM-dd'" />
+
+        <label for="profilePicture">Profile Picture</label>
+        <img [src]="profile?.profilePicture" alt="Profile Picture" width="100" height="100" />
+        <input id="profilePicture" type="file" accept="image/*" />
+      </fieldset>
+
+      <fieldset>
+        <legend>Preferences</legend>
+
+        <label for="language">Language</label>
+        <select id="language" [value]="profile?.preferences?.language">
+          <option value="English">English</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Vietnamese">Vietnamese</option>
+        </select>
+
+        <label for="viewMode">View Mode</label>
+        <select id="viewMode" [value]="profile?.preferences?.viewMode">
+          <option value="Light">Light</option>
+          <option value="Dark">Dark</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>User Statistics</legend>
+
+        <label for="loadedMessages">Number of Loaded Messages</label>
+        <input id="loadedMessages" type="number" [value]="profile?.userStatistics?.loadedMessagesBatchSize" 
+               placeholder="Enter number of loaded messages" min="0" required />
+
+        <label for="loadedComments">Number of Loaded Comments</label>
+        <input id="loadedComments" type="number" [value]="profile?.userStatistics?.loadedCommentsBatchSize" 
+               placeholder="Enter number of loaded comments" min="0" required />
+
+        <label for="loadedAttempts">Number of Exam Attempts</label>
+        <input id="loadedAttempts" type="number" [value]="profile?.userStatistics?.loadedAttemptsBatchSize" 
+               placeholder="Enter number of exam attempts" min="0" required />
+
+        <label for="loadedExams">Number of Loaded Exams</label>
+        <input id="loadedExams" type="number" [value]="profile?.userStatistics?.loadedExamsBatchSize" 
+               placeholder="Enter number of loaded exams" min="0" required />
+      </fieldset>
+
+      <div class="settings-btn-group d-flex" style="flex-direction: column;">
+        <button type="button" class="action-button green">Enable 2-Factor Authentication</button>
+        <button type="submit" class="action-button green">Save</button>
+        <button type="button" class="action-button red">Delete Account</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Security Section -->
+  <div class="password-section">
+    <h2>Security Settings</h2>
+    <p>Last Password Change: {{ profile?.securitySettings?.lastPasswordChange | date:'medium' }}</p>
+    <p>2-Factor Authentication: 
+      <span class="orange">{{ profile?.securitySettings?.mfaEnabled ? 'Enabled' : 'Disabled' }}</span>
+    </p>
+    <form>
+      <label for="newPassword">New Password</label>
+      <input id="newPassword" type="password" placeholder="Enter new password" minlength="8" required />
+
+      <label for="verifyPassword">Verify Password</label>
+      <input id="verifyPassword" type="password" placeholder="Confirm new password" minlength="8" required />
+
+      <label for="oldPassword">Old Password</label>
+      <input id="oldPassword" type="password" placeholder="Enter old password" required />
+
+      <button type="submit" class="action-button green" style="width: 100%;">Save</button>
+    </form>
+  </div>
+
+  <!-- Import/Export Section -->
+  <div class="import-export-section">
+    <h2>Import/Export Settings</h2>
+    <p>Import and export your account settings as JSON</p>
+    <button type="button" class="action-button green" style="width: 100%;">Export</button>
+    <div class="import-section my-3 p-4 orange-border-thin rounded">
+      <label for="importFile">Choose a JSON file to import:</label>
+      <input id="importFile" type="file" accept=".json" />
+      <button type="button" class="action-button green" style="width: 100%;">Import</button>
+    </div>
+  </div>
+</div>

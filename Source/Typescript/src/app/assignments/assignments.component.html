@@ -1,0 +1,35 @@
+<div class="assignments">
+  <ng-container *ngIf="exams.length; else noExams">
+    <div class="exam-grid ">
+      <div *ngFor="let exam of exams" class="exam-card orange-border-thin ">
+        <div class="exam-header">
+          <h3>{{ exam.name }}</h3>
+          <p>{{ exam.subject }}</p>
+        </div>
+
+        <div class="exam-details">
+          <div class="detail-item">
+            <span class="icon">⏱️</span>
+            <span>{{ exam.duration }} minutes</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">📅</span>
+            <span>Due: {{ exam.due | date }}</span>
+          </div>
+        </div>
+
+        <button (click)="onTakeExam(exam)">
+          Start Exam
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noExams>
+    <div class="empty-state">
+      <span class="icon">📘</span>
+      <h2>No Exams Available</h2>
+      <p>Check back later for new exams</p>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,36 @@
+### CREATE QUESTIONS
+POST http://localhost:8081/questions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0ZTA4N2U3Ny0wNDVjLTQ1YWItYjViNC1iZjkyYmMxY2MyM2IiLCJpYXQiOjE3MzI1NDIzNTYsIm5iZiI6MTczMjU0MjM1NiwiZXhwIjoxNzMyNjI4NzU2LCJpc3MiOiJBdXRoU2VydmljZSIsInBlcm1pc3Npb25zIjpbXSwic2NvcGUiOlsiVVNFUiJdLCJlbWFpbCI6InRlc3QxQGV4YW1wbGUuY29tIn0.Uau-3oVE0JiGxHAdlKfA7OsfMqrztKRer_zubZE_R-E
+
+[
+  {
+    "examId": "exam_1",
+    "questionId": "",
+    "content": "Lá ơi rơi chi trên dòng suối chờ ?",
+    "options": [
+      {
+        "content": "Cho tình cờ anh lính làm thơ",
+        "label": "A"
+      },
+      {
+        "content": "Lời thơ êm như hơi thở",
+        "label": "B"
+      },
+      {
+        "content": "Khi em nguyện chờ một người còn xa",
+        "label": "C"
+      },
+      {
+        "content": "Tôi đã quen rồi chuyện đi và quen xa ánh đèn phố thị",
+        "label": "D"
+      }
+    ],
+    "questionOrder": 1
+  }
+]
+
+
+### GET QUESTIONS AND SHUFFLE OPTIONS
+GET http://localhost:8081/questions/exam/f6c13ae9-b503-46df-86f2-d943c842bf02
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0ZTA4N2U3Ny0wNDVjLTQ1YWItYjViNC1iZjkyYmMxY2MyM2IiLCJpYXQiOjE3MzI4ODE1NjAsIm5iZiI6MTczMjg4MTU2MCwiZXhwIjoxNzMyOTY3OTYwLCJpc3MiOiJBdXRoU2VydmljZSIsInBlcm1pc3Npb25zIjpbXSwic2NvcGUiOlsiVVNFUiJdLCJlbWFpbCI6InRlc3QxQGV4YW1wbGUuY29tIiwidXNlcm5hbWUiOiJuaGhpZXUyNjEyIn0.ykuQgMUk5Q-dc0tUQdPc6loX8MbNGopV2cnAcfuOXwo

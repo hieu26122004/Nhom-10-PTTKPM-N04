@@ -1,0 +1,12 @@
+<h2 class="mb-4 text-primary">Participants</h2>
+<div *ngFor="let participant of participants" class="card mb-4 shadow-sm">
+  <div class="card-body bg-dark text-white rounded">
+    <h5 class="card-title text-info">{{ participant.username }}</h5>
+    <p class="card-text text-white">
+      <strong>Email:</strong> {{ participant.email }}
+    </p>
+    <button *ngIf="isTeacher" class="btn btn-danger" (click)="removeParticipant(participant)">
+      Remove
+    </button>
+  </div>
+</div>

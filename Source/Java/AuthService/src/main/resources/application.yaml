@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: AuthService
+  datasource:
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auth_service
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    open-in-view: false
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GG_CLIENT_ID}
+            client-secret: ${GG_CLIENT_SECRET}
+            scope:
+              - email
+              - profile
+              - openid
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      connect-timeout: 5000
+  threads:
+    virtual:
+      enabled: true
+
+practice-makes-perfect:
+  email:
+    sender: ${EMAIL_SENDER}
+    host: ${EMAIL_HOST:smtp.gmail.com}
+    port: ${EMAIL_PORT:587}
+    smtp:
+      username: ${SMTP_USERNAME}
+      password: ${SMTP_PASSWORD}
+    settings:
+      ssl: false
+      trusted: smtp.gmail.com
+      startTls: true
+      starttls:
+        required: true
+      debug: true
+    poolSizeScheduler: 10
+    maxRetryCount: 5
+    retryDelayMs: 60000
+
+    datasource:
+      url: mongodb://localhost:27017/auth-service
+
+
+  reset-pw-token:
+    ttl: 900000
+    delete-rate: 60000

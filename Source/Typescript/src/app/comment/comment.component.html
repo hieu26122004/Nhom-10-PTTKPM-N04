@@ -1,0 +1,50 @@
+<div class="comment-container light-text">
+    <div class="comment-content rounded orange-border-thin p-3 m-2">
+      <span class="orange"><strong>{{ comment.author }}</strong>:</span>
+      <p class="comment-content" [innerHTML]="comment.content"></p>
+      <div class="comment-info">
+        <span>{{ comment.replies || 0 }} replies</span>
+        <i
+          class="fa fa-comment-o"
+          aria-hidden="true"
+          style="margin-right: 0.5rem; cursor: pointer;"
+          (click)="toggleEditor()"
+        ></i>
+      </div>
+      <div
+        *ngIf="showEditor"
+        style="margin: 10px 0px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center;"
+      >
+        <quill-editor
+          [modules]="editorModules"
+          theme="snow"
+          [(ngModel)]="replyContent"
+          style="display: block; width: 100%; min-height: 100px;"
+        ></quill-editor>
+        <button
+          type="button"
+          class="btn base-button"
+          (click)="submitReply()"
+          style="align-self: start; margin: 0 !important; height: 100%;"
+        >
+          <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  
+    <div
+      class="comment-replies"
+      *ngIf="comment.replies > 0"
+      style="margin-left: 20px; border-left: 1px solid #ccc; padding-left: 10px;"
+    >
+      <h5 (click)="toggleReplies()" style="cursor: pointer;">
+        {{ showReplies ? 'Hide replies' : 'More replies' }}
+      </h5>
+      <ng-container *ngIf="showReplies">
+        <ng-container *ngFor="let reply of replies">
+          <app-comment [comment]="reply"></app-comment>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  

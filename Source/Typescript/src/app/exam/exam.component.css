@@ -1,0 +1,76 @@
+.exam-card {
+  transition: all 0.3s ease-in-out;
+}
+  
+.exam-card:hover {
+  border-color: var(--orange-color) !important;
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.5);
+}
+  
+.exam-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+  
+.subject,
+.provider,
+.duration,
+.question-count,
+.difficulty {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+  
+.take-exam-btn {
+  background-color: var(--orange-color);
+  border-color: var(--orange-color);
+  color: calc(var(--text-light));
+  transition: 0.3s ease-in-out;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.take-exam-btn:hover{
+  background-color: var(--orange-color);
+  border-color: var(--orange-color);
+  color: var(--text-light);
+  box-shadow: 0 0 0 0.25rem rgba(255, 69, 0, 0.25);
+  transition: 0.3s ease-in-out;
+  font-weight: bold;
+  transform: scaleY(1.25);
+  transform: scaleX(1.05);
+}
+  
+.exam-btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+  
+.vote-buttons {
+  display: flex;
+}
+  
+.vote-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--orange-color);
+  font-size: 1rem;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+  
+.vote-btn i {
+  margin-right: 5px;
+}
+
+.vote-btn {
+  transition: all 0.3s ease-in-out;
+}
+
+.vote-btn:hover {
+  transform: scale(1.5);
+  color: var(--orange-color);
+}

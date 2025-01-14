@@ -1,0 +1,86 @@
+.settings-section,
+.password-section,
+.import-export-section {
+    flex: 1 1 300px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    grid-template-rows: auto auto ;
+}
+
+.settings-section {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+}
+
+.password-section{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.import-export-section{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button-group button {
+    margin-right: 5px;
+    padding: 8px 12px;
+}
+
+.button-group .active {
+    background-color: #28a745;
+    color: white;
+}
+
+.checkbox-group label {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 5px;
+}
+
+.action-button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.action-button.green {
+    background-color: #28a745;
+    color: white;
+}
+
+.action-button.red {
+    background-color: #dc3545;
+    color: white;
+}
+
+.language-select select {
+    height: 100px;
+}

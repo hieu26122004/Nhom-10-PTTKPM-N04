@@ -1,0 +1,14 @@
+<div class="room-container container mt-4">
+
+  <div class="room-card">
+    <img src="assets/plus.png" alt="" class="room-image" (click)="createRoom()">
+    <p>Create new Room</p>
+  </div>
+
+  <div *ngFor="let room of rooms" class="room-card">
+    <a [routerLink]="['/community/', room.toLowerCase()]" style="text-decoration: none !important;">
+      <img src="assets/room.png" alt="" class="room-image">
+      <p>{{room}}</p>
+    </a>
+  </div>
+</div>

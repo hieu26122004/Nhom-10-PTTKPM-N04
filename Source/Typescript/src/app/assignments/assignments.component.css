@@ -1,0 +1,87 @@
+.assignments {
+    padding: 1rem;
+}
+
+.exam-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.exam-card {
+    background: var(--bg-dark);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s;
+
+    &:hover {
+    transform: translateY(-2px);
+    }
+
+    .exam-header {
+    margin-bottom: 1rem;
+
+    h3 {
+        margin: 0;
+        color: var(--text-light);
+        font-size: 1.2rem;
+    }
+
+    p {
+        margin: 0.5rem 0 0;
+        color: var(--text-light);
+    }
+    }
+
+    .exam-details {
+    margin: 1rem 0;
+
+    .detail-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0.5rem 0;
+        color: var(--text-light);
+
+        .icon {
+        font-size: 1.2rem;
+        }
+    }
+    }
+
+    button {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--orange-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+        background: var(--blue-color);
+    }
+    }
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+
+    .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    }
+
+    h2 {
+    margin: 0 0 0.5rem;
+    color: var(--text-light);
+    }
+
+    p {
+    margin: 0;
+    }
+}

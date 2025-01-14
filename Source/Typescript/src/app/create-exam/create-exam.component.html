@@ -1,0 +1,123 @@
+<div class="container mt-4 light-text">
+    <h1 class="light-text component-header">Create Exam</h1>
+
+    <form (ngSubmit)="onSubmit()" #createExamForm="ngForm">
+        <!-- Class Selection -->
+        <div class="mb-3">
+            <label for="clazz" class="form-label text-light">Select Class</label>
+            <div>
+                <select 
+                    class="w-100" 
+                    style="padding: .375rem 2.25rem .375rem .75rem;" 
+                    size="1" 
+                    [(ngModel)]="exam.classId"
+                    name="clazz"
+                    onfocus="this.size = 8" 
+                    onchange="this.blur()" 
+                    onblur="this.size = 1; this.blur()">
+                    <option selected value="">None</option>
+                    <option *ngFor="let clazz of clazzes" [value]="clazz.classId">
+                        {{clazz.classId}} - {{clazz.className}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Subject Selection -->
+        <div class="mb-3">
+            <label for="subject" class="form-label light-text">Subject</label>
+            <select 
+                class="form-select my-4 custom-scroll" 
+                id="subject" 
+                [(ngModel)]="exam.subject" 
+                name="subject" 
+                required>
+                <option value="Math">Math</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Biology">Biology</option>
+                <option value="History">History</option>
+                <option value="Geography">Geography</option>
+                <option value="Civics">Civics</option>
+            </select>
+        </div>
+
+        <!-- Difficulty Selection -->
+        <div class="mb-3">
+            <label for="difficulty" class="form-label light-text">Difficulty</label>
+            <select 
+                class="form-select my-4 custom-scroll" 
+                id="difficulty" 
+                [(ngModel)]="exam.difficultyLevel" 
+                name="difficulty" 
+                required>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+                <option value="Very Hard">Very Hard</option>
+            </select>
+        </div>
+
+        <!-- Exam Name -->
+        <div class="mb-3">
+            <label for="examName" class="form-label light-text">Exam Name</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="examName" 
+                [(ngModel)]="exam.name" 
+                name="examName" 
+                required>
+        </div>
+
+        <!-- Duration (minutes) -->
+        <div class="mb-3">
+            <label for="duration" class="form-label light-text">Duration (minutes)</label>
+            <input 
+                type="number" 
+                class="form-control" 
+                id="duration" 
+                [(ngModel)]="exam.duration" 
+                name="duration" 
+                required>
+        </div>
+
+        <!-- Questions Count -->
+        <div class="mb-3">
+            <label for="questionsCount" class="form-label light-text">Questions Count</label>
+            <input 
+                type="number" 
+                class="form-control" 
+                id="questionsCount" 
+                [(ngModel)]="exam.numberOfQuestion" 
+                name="questionsCount" 
+                required>
+        </div>
+
+        <!-- Max Attempts and Due Date -->
+        <div *ngIf="exam.classId" class="mb-3">
+            <!-- Max Attempts -->
+            <label for="maxAttempts" class="form-label light-text">Max Attempts</label>
+            <input 
+                type="number" 
+                class="form-control" 
+                id="maxAttempts" 
+                [(ngModel)]="exam.maxAttempts" 
+                name="maxAttempts" 
+                required>
+
+            <!-- Due Date -->
+            <label for="due" class="form-label light-text mt-3">Due Date</label>
+            <input 
+                type="datetime-local" 
+                class="form-control" 
+                id="due" 
+                [(ngModel)]="exam.due" 
+                name="due" 
+                required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn base-button" [disabled]="!createExamForm.form.valid">Create Exam</button>
+    </form>
+</div>

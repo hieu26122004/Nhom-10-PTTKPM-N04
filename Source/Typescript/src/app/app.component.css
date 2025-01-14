@@ -1,0 +1,24 @@
+app-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #212529;
+}
+
+.sidebar-container {
+    position: fixed;
+    left: 0;
+    top: 17vh;
+    width: 25%;
+    height: calc(100% - 56px);
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.content-container {
+    margin-left: 25%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+

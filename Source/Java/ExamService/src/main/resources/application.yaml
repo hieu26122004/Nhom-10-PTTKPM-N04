@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: ExamService
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/exam_service?serverTimezone=UTC
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+    logging:
+      level:
+        org:
+          springframework:
+            cache=DEBUG:
+    properties:
+      hibernate:
+
+  threads:
+    virtual:
+      enabled: true
+
+
+jwt:
+  secret: ${JWT_SECRET}
+
+server:
+  port: 8081
+
+practice-makes-perfect:
+  id:
+    exam-generator-id: 0
+    question-generator-id: 1
+  firebase:
+    config:
+      path: ${FIREBASE_CONFIG_PATH}
+    storage:
+      bucket: ${FIREBASE_STORAGE_BUCKET}
+  comment:
+    datasource:
+      url: mongodb://localhost:27017/exam-service
+    remove-rate: 1800000

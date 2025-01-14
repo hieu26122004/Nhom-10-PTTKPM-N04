@@ -1,0 +1,20 @@
+.fa-arrow-left:hover{
+  cursor: pointer;
+  color: var(--orange-color);
+  scale: 1.5;
+  transition: 0.3s ease-in-out;
+}
+
+.take-exam-btn{
+  background-color: var(--orange-color);
+}
+
+.take-exam-btn:hover{
+  background-color: var(--orange-color);
+  color: var(--text-light);
+  box-shadow: 0 0 0 0.25rem rgba(255, 69, 0, 0.25);
+  scale: 1.1;
+  transition: 0.3s ease-in-out;
+}
+
+  

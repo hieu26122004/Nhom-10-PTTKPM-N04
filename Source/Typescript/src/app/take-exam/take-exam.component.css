@@ -1,0 +1,50 @@
+.question-btn{
+    background-color: #fff;
+    color: #212529;
+}
+
+.mini-map button.active {
+    border-color: #ff4500;
+    color: #fff;
+    background-color: #212529;
+}
+
+.mini-map button:hover {
+    border:2px solid #ff4500;
+    color: #212529;
+    scale: 1.1;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 0 0.25rem rgba(255, 69, 0, 0.25);
+}
+
+.selected{
+    background-color: #ff4500!important;
+    color: #fff;
+}
+
+.submit-exam-btn{
+    background-color: #ff4500;
+    color: #fff;
+}
+
+.next-question-btn{
+    background-color: #ff4500;
+    color: #fff;
+}
+
+.next-question-btn:hover,
+.previous-question-btn:hover{
+
+    border: 2px solid #ff4500;
+    scale: 1.1;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 0 0.25rem rgba(255, 69, 0, 0.25);
+}
+
+.submit-exam-btn:hover{
+    background-color: #ff4500;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(255, 69, 0, 0.25);
+    scale: 1.1;
+    transition: 0.3s ease-in-out;
+}

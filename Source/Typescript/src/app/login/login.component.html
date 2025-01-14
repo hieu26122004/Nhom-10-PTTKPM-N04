@@ -1,0 +1,35 @@
+<div class="container-fluid vh-100 d-flex justify-content-center align-items-center" style="background: linear-gradient(135deg, #FF4400, #ae3d13);">
+  <div class="card p-4 shadow" style="max-width: 400px; width: 100%;">
+    <h3 class="text-center mb-4">Login</h3>
+    <p *ngIf="wrongUsername || wrongPassword" class="text-center text-danger">{{errorMessage}}</p>
+    <form [formGroup]="formLogin" (ngSubmit)="login()">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" formControlName="username" class="form-control" id="username" placeholder="Nhập tên đăng nhập" required [ngClass]="{'is-invalid': wrongUsername}">
+      </div>
+      
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="password" placeholder="Nhập mật khẩu" required [ngClass]="{'is-invalid': wrongPassword}">
+      </div>
+      
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary mb-3">Login</button>
+      </div>
+      
+      <div class="text-center mb-3">
+        <a href="#" class="text-decoration-none">Forgot Password</a>
+      </div>
+
+      <div class="text-center mb-3">
+        <span class="text-muted">OR</span>
+      </div>
+      
+      <div class="d-grid">
+        <button type="button" class="btn btn-outline-danger">
+          <i class="bi bi-google me-2"></i> Sign in with Google
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

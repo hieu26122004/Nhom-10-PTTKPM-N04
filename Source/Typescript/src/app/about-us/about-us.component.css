@@ -1,0 +1,64 @@
+.objectives{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    list-style: none;
+}
+
+.objectives-item {
+    padding: 1rem;
+    border: 5px solid transparent;
+    border-image: linear-gradient(to right, #ff4500, #ff8c00) 1;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: border-image 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+}
+
+.objectives-item:hover {
+    border-image: linear-gradient(to left, #ff4500, #ff8c00) 1;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+
+.project-team {
+    padding: 3rem 0;
+}
+
+
+
+.project-team .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.project-team .card-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+
+.project-team .card-text strong {
+    font-size: 1.1rem;
+    color: #ff4500; 
+}
+
+.project-team .card-text {
+    font-size: 1rem;
+    color: #bdbcbc;
+    line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+    .project-team .col-md-4 {
+        flex: 1 1 100%;
+    }
+}

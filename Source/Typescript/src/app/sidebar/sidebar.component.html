@@ -1,0 +1,178 @@
+<div class="scrollable-container border-end m-3 pb-4">
+  <!-- Home Link -->
+  <p>
+    <a routerLink="/home">
+      <i class="fa fa-home" aria-hidden="true"></i>
+      <span class="ms-2">Home</span>
+    </a>
+  </p>
+
+  <!-- Categories Link -->
+  <p>
+    <a routerLink="/categories">
+      <i class="fa fa-th-large" aria-hidden="true"></i>
+      <span class="ms-2">Categories</span>
+    </a>
+  </p>
+
+  <!-- Timeable Link -->
+  <p>
+    <a routerLink="/timeable">
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+      <span class="ms-2">Timeable</span>
+    </a>
+  </p>
+
+  <!-- Community Link -->
+  <p>
+    <a routerLink="/communities">
+      <i class="fa fa-users" aria-hidden="true"></i>
+      <span class="ms-2">Communities</span>
+    </a>
+  </p>
+
+  <!-- Your Messages Link -->
+  <p>
+    <a routerLink="/messages">
+      <i class="fa fa-envelope-o" aria-hidden="true"></i>
+      <span class="ms-2">Your Messages</span>
+    </a>
+  </p>
+
+  <!-- History Link -->
+  <p>
+    <a routerLink="/history">
+      <i class="fa fa-history" aria-hidden="true"></i>
+      <span class="ms-2">History</span>
+    </a>
+  </p>
+
+  <!-- Classes Dropdown -->
+  <p>
+    <a data-bs-toggle="collapse" href="#classes" role="button" aria-expanded="false">
+      <span class="me-2">Your classes</span>
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+  </p>
+
+  <div class="collapse" id="classes">
+    <div class="sidebar-item ms-2 my-2" data-bs-toggle="modal" data-bs-target="#createClassModal">
+      <i class="fa fa-plus mx-2" aria-hidden="true"></i>
+      <span class="">Create a Class</span>
+    </div>
+    <div class="sidebar-item ms-2 my-2" data-bs-toggle="modal" data-bs-target="#joinClassModal">
+      <i class="fa fa-hand-o-right mx-2" aria-hidden="true"></i>
+      <span class="">Join A Class</span>
+    </div>
+    <div *ngFor="let clz of clazz; let i = index">
+      <div class="sidebar-item ms-2 my-2" (click)="goToClass(clz)">
+        <i class="fa fa-circle mx-2" aria-hidden="true"></i>
+        <span>{{ clz.className }}</span>
+        <p class="class-id-text">id: {{clz.classId}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Link -->
+  <p class="border-bottom my-2" style="background-color: transparent !important; border: 0 !important; box-shadow: none !important;">
+  </p>
+  <p>
+    <a routerLink="/settings">
+      <i class="fa fa-cog" aria-hidden="true"></i>
+      <span class="ms-2">Settings</span>
+    </a>
+  </p>
+
+  <!-- About Us Link -->
+  <p>
+    <a routerLink="/about-us">
+      <i class="fa fa-address-card" aria-hidden="true"></i>
+      <span class="ms-2">About Us</span>
+    </a>
+  </p>
+
+  <!-- Help Link -->
+  <p>
+    <a routerLink="/help">
+      <i class="fa fa-question-circle" aria-hidden="true"></i>
+      <span class="ms-2">Help</span>
+    </a>
+  </p>
+</div>
+
+
+<div class="modal fade" id="createClassModal" tabindex="-1" aria-labelledby="createClassModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #474c50; border-radius: 10px; border: 2px solid #ff4500;">
+      <div class="modal-header" style="border-bottom: 2px solid #ff4500;">
+        <h1 class="modal-title fs-5" id="createClassModalLabel">Create New Class</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="createClassForm">
+          <div class="mb-3">
+            <label for="className" class="form-label">Class Name</label>
+            <input type="text" class="form-control" id="className" formControlName="className" placeholder="Enter class name">
+            <div *ngIf="createClassForm.get('className')?.invalid && createClassForm.get('className')?.touched" class="text-danger">
+              Class name is required.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="classDescription" class="form-label">Class Description</label>
+            <textarea class="form-control" id="classDescription" formControlName="classDescription" rows="3" placeholder="Enter class description"></textarea>
+            <div *ngIf="createClassForm.get('classDescription')?.invalid && createClassForm.get('classDescription')?.touched" class="text-danger">
+              Class description is required.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="teacherName" class="form-label">Teacher Name</label>
+            <p class="text-danger">Your name will be displayed as your name in the class</p>
+            <input type="text" class="form-control" id="teacherName" formControlName="teacherName" placeholder="Enter teacher name">
+            <div *ngIf="createClassForm.get('teacherName')?.invalid && createClassForm.get('teacherName')?.touched" class="text-danger">
+              Teacher name is required.
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn text-light" style="background-color: #ff4500;" (click)="createClass()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="joinClassModal" tabindex="-1" aria-labelledby="joinClassModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="justify-content:space-between">
+        <h5 class="modal-title text-dark" id="joinClassModalLabel">Join Class</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="padding: 5px 15px; background-color: #fff; border: 0;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Sử dụng formGroup và formControlName -->
+        <form [formGroup]="joinClassForm">
+          <div class="mb-3">
+            <label for="inviteLink" class="form-label">Enter Invite Link</label>
+            <input type="text" class="form-control" id="inviteLink" formControlName="inviteLink" placeholder="Paste the invite link here">
+          </div>
+
+          <div class="mb-3">
+            <label for="studentName" class="form-label">Enter Your Name</label>
+            <input type="text" class="form-control" id="studentName" formControlName="studentName" placeholder="Enter your name">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn" style="background-color: #ff4500; color: white;" (click)="joinClass()">Join Class</button>
+      </div>
+    </div>
+  </div>
+</div>

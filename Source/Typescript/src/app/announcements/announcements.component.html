@@ -1,0 +1,45 @@
+<div class="announcements-container">
+  <!-- Check if there are announcements -->
+  <div *ngIf="announcements.length; else empty">
+    <!-- Loop through announcements -->
+    <div
+      class="announcement-card orange-border-thin card-hover:hover"
+      *ngFor="let announcement of announcements"
+      [@fadeIn]
+    >
+      <div class="card-header">
+        <div class="avatar-icon">
+          <i class="fa fa-bullhorn"></i>
+        </div>
+        <div class="card-header-text">
+          <h3 class="card-title">{{ announcement.title }}</h3>
+          <p class="card-subtitle">
+            <i class="fa fa-clock-o time-icon"></i>
+            {{ announcement.date | date: 'MMM d, y, h:mm a' }}
+          </p>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <p>{{ announcement.content }}</p>
+      </div>
+
+      <!-- Optional link actions -->
+      <div class="card-actions" *ngIf="announcement.link">
+        <a class="action-button" [href]="announcement.link" target="_blank" rel="noopener noreferrer">
+          Learn More
+          <i class="fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty state template -->
+  <ng-template #empty>
+    <div class="empty-state">
+      <i class="fa fa-bell-slash empty-icon"></i>
+      <h2>No Announcements</h2>
+      <p>Check back later for updates</p>
+    </div>
+  </ng-template>
+</div>

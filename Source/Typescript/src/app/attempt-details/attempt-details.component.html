@@ -1,0 +1,44 @@
+<div class="container mt-4">
+    <h1 class="light-text component-header">
+        Attempt Details
+    </h1>
+
+    <div class="text-light" *ngIf="attempt && exam">
+        <p><strong>Exam Name :</strong> {{ exam.name }}</p>
+        <p><strong>Subject:</strong> {{ exam.subject }}</p>
+        <p><strong>Provider:</strong> {{ exam.provider }}</p>
+        <p><strong>Duration:</strong> {{ exam.duration }} minutes</p>
+        <p><strong>Questions:</strong> {{ exam.numberOfQuestion }}</p>
+        <p><strong>Difficulty:</strong> {{ exam.difficultyLevel }}</p>
+        <p *ngIf="attempt.result" [ngClass]="attempt.result.score >= 50 ? 'orange' : 'yellow'"><strong>Score:</strong> 
+            <span>
+              {{ attempt.result.score }}
+            </span>
+        </p>          
+        <p class="orange"><strong>Correct Answer:</strong> {{ attempt.result?.correctCount }} questions</p>
+        <p class="yellow"><strong>Incorrect Answer:</strong> {{ attempt.result?.incorrectCount }} questions</p>
+        <p class="red"><strong>Unanswered:</strong> {{ attempt.result?.unansweredCount }} questions</p>
+    </div>
+    
+    <div class="questions-grid my-4" *ngIf="attempt?.questions">
+        <div *ngFor="let question of attempt.questions; let i = index" 
+             class="question-card light-text" 
+             [ngClass]="{
+                 'correct': attempt.userAnswer[i].isCorrect,
+                 'incorrect': !attempt.userAnswer[i].isCorrect
+             }">
+            <p><strong>Question {{ i + 1 }}:</strong> <span [innerHTML]="sanitizeHtml(question.content)"></span></p>
+    
+            <!-- Display Options -->
+            <div *ngFor="let option of question.options">
+                <p [ngClass]="{
+                    'correct-answer': option.isCorrect
+                }">
+                    <strong>{{ option.label }}:</strong> <span [innerHTML]="sanitizeHtml(option.content)"></span>
+                </p>
+            </div>
+    
+            <p><strong>Your Answer:</strong> <span [innerHTML]="sanitizeHtml(attempt.userAnswer[i].userAnswer)">{{ attempt.userAnswer[i].userAnswer }}</span></p>
+        </div>
+    </div>
+</div>

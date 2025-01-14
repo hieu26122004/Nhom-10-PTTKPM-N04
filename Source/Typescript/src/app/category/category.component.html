@@ -1,0 +1,52 @@
+<div class="category-container text-light">
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div class="filter">
+    <ul class="category-list">
+      <li *ngFor="let subject of ['MATH', 'PHYSIC', 'CHEMISTRY', 'BIOLOGY', 'HISTORY', 'GEOGRAPHY', 'CIVICS']">
+        <label>
+          <input
+            type="radio"
+            name="subject"
+            [value]="subject"
+            (change)="toggleSubject(subject)"
+            [checked]="selectedSubject === subject"
+          />
+          {{ subject }}
+        </label>
+      </li>
+      <li *ngIf="isAdmin">
+        <label>
+          <input
+            type="radio"
+            name="subject"
+            value="NOT_ACCEPTED"
+            (change)="toggleSubject('NOT_ACCEPTED')"
+            [checked]="selectedSubject === 'NOT_ACCEPTED'"
+          />
+          NOT ACCEPTED
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <div class="exam-list">
+    <div *ngIf="!filteredExams.length && !isLoading" class="text-center">
+      No exams available for the selected subject.
+    </div>
+
+    <div *ngFor="let exam of filteredExams">
+      <app-exam [exam]="exam" [accepted]="exam.status === 'ACCEPTED'" class="my-3"></app-exam>
+    </div>
+
+    <button 
+      class="btn btn-primary mt-3" 
+      (click)="moreExams()" 
+      [disabled]="isLoading"
+    >
+      {{ isLoading ? 'Loading...' : 'See more' }}
+    </button>
+  </div>
+</div>

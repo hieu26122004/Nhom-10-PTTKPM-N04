@@ -1,0 +1,29 @@
+<div class="container mt-4 py-5">
+    <section class="mb-5">
+      <h1 class="display-4 text-center light-text">{{ projectName }}</h1>
+      <p class="lead text-center light-text">{{ purpose }}</p>
+      <p class="text-center light-text">{{ background }}</p>
+    </section>
+  
+    <section class="mb-5 light-text">
+      <h2 class="h3 text-center mb-4 header-lg">Project Objectives</h2>
+      <ul class="objectives">
+        <li *ngFor="let objective of objectives" class="objectives-item">{{ objective }}</li>
+      </ul>
+    </section>
+  
+    <section class="project-team mb-5 light-text">
+      <h2 class="h3 text-center mb-4 text-size-lg header-lg">Project Team</h2>
+      <div class="row">
+        <div *ngFor="let member of teamMembers" class="col-md-4 mb-4">
+          <div class="card shadow-sm dark-background orange-border-thin">
+            <div class="light-text card-body">
+              <h5 class="card-title header-md">{{ member.name }}</h5>
+              <p class="card-text header-sm"><strong>{{ member.role }}</strong></p>
+              <p class="card-text">{{ member.bio }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>

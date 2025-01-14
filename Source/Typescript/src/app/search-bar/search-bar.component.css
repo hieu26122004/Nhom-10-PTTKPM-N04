@@ -1,0 +1,10 @@
+.search-btn:hover{
+    background-color: #ff4500;
+    border-color: #ff4500;
+    color: #fff;
+}
+
+.form-control:focus{
+    border-color: #ff4500;
+    box-shadow: 0 0 0 0.25rem rgba(255, 69, 0, 0.25);
+}

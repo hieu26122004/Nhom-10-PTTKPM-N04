@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ClassService
+
+  datasource:
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    url: jdbc:mysql://localhost:3306/class_service
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+
+
+server:
+  port: 8088
+security:
+  aes:
+    key: ${AES_KEY}
+jwt:
+  secret: ${JWT_SECRET}

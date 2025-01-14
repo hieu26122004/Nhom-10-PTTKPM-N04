@@ -1,0 +1,47 @@
+<div class="container mt-4" style="overflow-x: visible;">
+    <i class="fa fa-arrow-left p-3" aria-hidden="true" (click)="goBack()"></i>
+  
+    <ng-container *ngIf="exam; else loadingTemplate">
+      <div class="exam-details-container">
+        <h1 class="text-light" style="font-weight: 700; font-size: 1.5rem; margin-bottom: 1rem;">
+          {{ exam.name }}
+        </h1>
+        <p><strong>Subject:</strong> {{ exam.subject }}</p>
+        <p><strong>Provider:</strong> {{ exam.provider }}</p>
+        <p><strong>Duration:</strong> {{ exam.duration }} minutes</p>
+        <p><strong>Questions:</strong> {{ exam.numberOfQuestion }}</p>
+        <p><strong>Difficulty:</strong> {{ exam.difficultyLevel }}</p>
+      </div>
+  
+      <button (click)="takeExam()" class="btn take-exam-btn text-light">Take Exam</button>
+  
+      <button type="btn" class="btn base-button d-block w-100" (click)="toggleComments()">
+        <i class="fa fa-comment-o"></i> Comment
+      </button>
+  
+      <div *ngIf="showEditor" class="editor-container" style="margin: 10px 0px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center;">
+        <quill-editor [modules]="editorModules" theme="snow" [(ngModel)]="commentContent"></quill-editor>
+        <button type="button" class="btn base-button" (click)="submitComment()" style="height: 70%;">
+          <i class="fa fa-paper-plane"></i> Submit
+        </button>
+      </div>
+  
+      <div class="comments-section" *ngIf="comments.length">
+        <h3 class="text-light mt-4">Comments:</h3>
+        <div *ngFor="let comment of comments">
+          <app-comment [comment]="comment"></app-comment>
+        </div>
+  
+        <p *ngIf="!isLoadingComments" (click)="loadMoreComments()">More comments...</p>
+        <p *ngIf="isLoadingComments">Loading more comments...</p>
+      </div>
+    </ng-container>
+  
+    <ng-template #loadingTemplate>
+      <div class="exam-details-container">
+        <div class="spinner"></div>
+        <h1 class="text-light">Loading Exam Details...</h1>
+      </div>
+    </ng-template>
+  </div>
+  

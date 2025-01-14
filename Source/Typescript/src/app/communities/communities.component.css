@@ -1,0 +1,44 @@
+.community-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.community-card {
+    border: 1px solid;
+    border-color: var(--bg-light);
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.community-card:hover {
+    transform: scale(1.05);
+}
+
+.community-image {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 8px 8px 0 0;
+}
+
+.class-name {
+    color: var(--text-light)!important;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.quote {
+    font-style: italic;
+    color: var(--blue-color);
+}
+
+.base-card {
+    padding: 15px;
+}

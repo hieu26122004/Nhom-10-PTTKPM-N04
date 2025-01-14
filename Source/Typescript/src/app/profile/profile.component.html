@@ -1,0 +1,34 @@
+<div class="profile-container light-text">
+    <div class="user-info">
+      <h3 class="orange">&#64;{{ profile?.userName }}</h3>
+      <div class="stats">
+        <span>{{ exams?.length || 0 }} Posts</span>
+        <span>0 Comments</span>
+      </div>
+      <p>Joined {{ timeSinceJoined }}</p>
+      <p>🎂 Cake day: {{ createdAt }}</p>
+    </div>
+  
+    <div class="tabs">
+        <button class="base-button active">Overview</button>
+        <button class="base-button">Comments</button>
+        <button class="base-button">Posts</button>
+        <button class="base-button">Saved</button>
+        <select>
+            <option>New</option>
+            <option>Top</option>
+        </select>
+    </div>
+  
+    <div class="content ">
+      <p *ngIf="exams.length == 0">No content available yet.</p>
+      <div *ngFor="let exam of exams" class="my-3">
+        <app-exam [exam]="exam"></app-exam>
+      </div>
+    </div>
+  
+    <div class="next-button">
+      <button class="base-button p-2">Next</button>
+    </div>
+  </div>
+  
